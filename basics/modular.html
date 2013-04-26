@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="productModule">
+<head>
+    <title></title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <div>
+        <h2>Modular Example</h2>
+        <!--placeholder for views-->
+        <div ng-view></div>
+
+
+    </div>
+    <script>
+        var productModule = angular.module('productModule', []);
+
+        productModule.config(function ($routeProvider) {
+            $routeProvider
+                    .when(
+                    '/view1',
+                    {
+                        controller: 'productsController',
+                        templateUrl: 'partials/view1.html'
+                    })
+                    .when(
+                    '/view2',
+                    {
+                        controller: 'productsController',
+                        templateUrl: 'partials/view2.html'
+                    })
+                    .otherwise({redirectTo: '/view1'});
+        });
+
+        productModule.factory('productFactory', function() {
+            var factory = {};
+            var products= [
+                {product_name: 'IPhone 1', moq: 33},
+                {product_name: 'IPhone 2', moq: 2},
+                {product_name: 'IPhone 3', moq: 7}];
+
+            factory.getProducts = function() {
+                return products;
+            }
+            return factory;
+        });
+
+        var controllers = {};
+
+        controllers.productsController = function($scope, productFactory) {
+            // hardcoded
+            $scope.products = productFactory.getProducts();
+        };
+
+        productModule.controller(controllers);
+    </script>
+</body>
+</html>

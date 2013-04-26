@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="controllers.js"></script>
+</head>
+<body>
+    <h1>Learning Angular</h1>
+
+    <div ng-init="friends=['chris', 'luis', 'daya']">
+        {{ friends.length }}
+        <ul>
+            <li ng-repeat="friend in friends">{{ friend | uppercase }}</li>
+        </ul>
+    </div>
+
+    <div ng-init="products=[{product_name: 'MacBook Air', moq: 15}, {product_name: 'MacBook Pro Retina', moq: 8}, {product_name: 'MacBook Pro', moq: 77}]">
+        <h2>Products</h2>
+        <input type="text" ng-model="product_name_input">
+        <ul>
+            <li ng-repeat="product in products | filter:product_name_input | orderBy:'moq' ">
+                {{ product.product_name }} - {{ product.moq }}
+            </li>
+        </ul>
+    </div>
+
+    <div ng-controller="ProductController">
+        <h2>Dependency Injection - Products</h2>
+        <input type="text" ng-model="product_name_input">
+        <ul>
+            <li ng-repeat="product in products | filter:product_name_input | orderBy:'-moq'">
+                {{ product.product_name }} - {{ product.moq }}
+            </li>
+        </ul>
+    </div> <!--end of $scope of ProductController-->
+</body>
+</html>
