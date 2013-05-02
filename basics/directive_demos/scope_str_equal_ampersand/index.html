@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="app">
+    <input type="text" ng-model="task">
+    <br><br>
+    <todo task-str='{{task}}' other='other attr'></todo>
+
+    <br><br>
+    <todo task-equal='task' other='other cool attr'></todo>
+
+    <br><br>
+    ampersand
+    <div ng-controller="AppCtrl">
+        <phone dial='callHome(message)'></phone>
+    </div>
+</body>
+</html>
