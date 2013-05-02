@@ -9,7 +9,7 @@
     <script src="app.js"></script>
 </head>
 <body>
-    <div ng-app="app">
+    <div id="app">
         <br>
         <input type="text" ng-model="class_name" autofocus="">
         <h6>3/4 = {{ 3 / 4 }}</h6>
@@ -36,10 +36,8 @@
         </div>
     </div>
     <legend>Sharing data between controllers</legend>
-    <div ng-app="myApp">
+    <div id="myApp">
         <div ng-controller="AwesomeCtrl">
-            {{ 4 + 4 }}
-            {{ variable }}
             <input type="text" ng-model="data.message">
             <h3>{{ data.message }}</h3>
         </div>
@@ -47,6 +45,16 @@
             <input type="text" ng-model="data.message">
             <h3>{{ data.message }}</h3>
         </div>
+
+        <legend>Call method from controller</legend>
+        <div ng-controller="CoolCtrl">
+            <input type="text" ng-model="data.message">
+            <h2>{{ reverse(data.message) }}</h2>
+        </div>
+
+        <legend>Filter</legend>
+        <input type="text" ng-model="data.message" placeholder="test">
+        <h3>{{ data.message|reverse }}</h3>
     </div>
 </body>
 </html>
