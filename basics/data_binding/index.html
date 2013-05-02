@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div ng-app="app">
+        <br>
+        <input type="text" ng-model="class_name" autofocus="">
+        <h6>3/4 = {{ 3 / 4 }}</h6>
+        <h7>{{ "hello" + "world" }}</h7>
+        <h5>{{ class_name }}</h5>
+        <div class="alert alert-{{ class_name }}">
+            This is a twitter bootstrap alert !
+        </div>
+
+        <legend>dot</legend>
+        <!--data.message will be overwritten by controllers-->
+        <input type="text" ng-model="data.message">
+        <h4>{{ data.message }}</h4>
+
+        <div ng-controller="FirstCtrl">
+            <!--data.message is in the scope of FirstCtrl-->
+            <input type="text" ng-model="data.message">
+            <h4>{{ data.message }}</h4>
+        </div>
+
+        <div ng-controller="SecondCtrl">
+            <input type="text" ng-model="data.message">
+            <h4>{{ data.message }}</h4>
+        </div>
+    </div>
+    <legend>Sharing data between controllers</legend>
+    <div ng-app="myApp">
+        <div ng-controller="AwesomeCtrl">
+            {{ 4 + 4 }}
+            {{ variable }}
+            <input type="text" ng-model="data.message">
+            <h3>{{ data.message }}</h3>
+        </div>
+        <div ng-controller="OtherCtrl">
+            <input type="text" ng-model="data.message">
+            <h3>{{ data.message }}</h3>
+        </div>
+    </div>
+</body>
+</html>
