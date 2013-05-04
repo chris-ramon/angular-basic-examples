@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='myModule'>
+<head>
+    <title>AngularJS</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="directives.js"></script>
+    <script src="factories.js"></script>
+</head>
+<body>
+    <div ng-controller="AppCtrl">
+        <br><br>
+
+        <select
+                rp-category
+                ng-model="category"
+                ng-options="category.name for category in categories"
+                ng-change="displaySubcategory()">
+        </select>
+
+        <br><br>
+
+        <!--<rp-category></rp-category>-->
+
+        <br><br>
+
+
+
+    </div>
+</body>
+</html>
