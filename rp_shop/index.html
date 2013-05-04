@@ -17,8 +17,38 @@
 </head>
 <body>
     <div class="container-fluid">
-        <h1>Royal Pioneers</h1>
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button"
+                            class="btn btn-navbar"
+                            data-toggle="collapse"
+                            data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="#">
+                                    Products
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Cart
+                                    <span class="navbar-unread">1</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div animated-view></div>
 
     <script src="app/js/jquery/jquery-1.9.1.min.js"></script>
     <script src="app/js/jquery/jquery-ui-1.10.0.custom.min.js"></script>
